@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-poppins);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.font-poppins {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.font-playfair {
+  font-family: var(--font-playfair), serif;
+}
+
+@keyframes sheen {
+  0% {
+    transform: rotateZ(60deg) translate(-5em, 7em);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotateZ(60deg) translate(5em, -11em);
+    opacity: 0;
+  }
+}
+
+.btn-slider {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn-slider .shine {
+  position: absolute;
+  top: 0;
+  left: -50px;
+  width: 50px;
+  height: 100%;
+  background: linear-gradient(to bottom,
+      transparent,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent);
+  transform: rotateZ(60deg) translate(-1em, 5.5em);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.group:hover .btn-slider .shine,
+.btn-slider:hover .shine {
+  animation: sheen 0.6s;
+}
+
+.html,
+body {
+  overflow-x: hidden;
+}
+
+input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  display: none;
+}
+
+input[type="date"]::-moz-focus-inner {
+  border: 0;
+}
+
+input[type="date"]::-moz-calendar-picker-indicator {
+  display: none;
+}
+
